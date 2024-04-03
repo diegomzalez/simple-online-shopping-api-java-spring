@@ -11,17 +11,19 @@ import com.diegomzalez.orderservice.model.Order;
 import com.diegomzalez.orderservice.model.OrderLineItems;
 import com.diegomzalez.orderservice.repository.OrderRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class OrderService {
     private final OrderRepository orderRepository;
 
     public void placeOrder(OrderRequest orderRequest) {
-        List<OrderLineItems> orderLineItemds = orderRequest.getOrderLineItems().stream().map(this::mapToDto).toList();
+        List<OrderLineItems> orderLineItems = orderRequest.getOrderLineItems().stream().map(this::mapToDto).toList();
         Order order = Order.builder().number(UUID.randomUUID().toString()).build();
-        order.setOrderLineItemsList(orderLineItemds);
+        order.setOrderLineItemsList(orderLineItems);
         orderRepository.save(order);
     }
 
