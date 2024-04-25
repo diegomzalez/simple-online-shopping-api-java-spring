@@ -1,0 +1,33 @@
+services:
+  psmongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./psmongod:/var/lib/mongo/data
+  osmdb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${OSMDB_MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${OSMDB_MYSQL_USER}
+      MYSQL_PASSWORD: ${OSMDB_MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${OSMDB_MYSQL_DATABASE}
+    ports:
+      - "${OSMDB_CONTAINER_PORT}:${MYSQL_PORT}"
+    volumes:
+      - ./osmdbd:/var/lib/mysql/osmdbd
+  ismdb:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ISMDB_MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${ISMDB_MYSQL_USER}
+      MYSQL_PASSWORD: ${ISMDB_MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${ISMDB_MYSQL_DATABASE}
+    volumes:
+      - ./ismdbd:/var/lib/mysql
+    ports:
+      - "${ISMDB_CONTAINER_PORT}:${MYSQL_PORT}"
+volumes:
+  psmongod:
+  osmdbd:
+  ismdbd:

@@ -47,7 +47,6 @@ hs_err_pid*
 
 # Docker
 **/Dockerfile.*
-**/docker-compose.*
 docker-compose.override.yml
 *.cert
 *.key

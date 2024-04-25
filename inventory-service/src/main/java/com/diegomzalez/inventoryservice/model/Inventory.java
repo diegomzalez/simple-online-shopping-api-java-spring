@@ -1,4 +1,4 @@
-package com.diegomzalez.iventoryservice.model;
+package com.diegomzalez.inventoryservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

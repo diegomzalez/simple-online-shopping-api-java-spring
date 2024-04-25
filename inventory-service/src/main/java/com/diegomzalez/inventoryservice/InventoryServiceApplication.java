@@ -1,18 +1,18 @@
-package com.diegomzalez.iventoryservice;
+package com.diegomzalez.inventoryservice;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.diegomzalez.iventoryservice.model.Inventory;
-import com.diegomzalez.iventoryservice.repository.InventoryRepository;
+import com.diegomzalez.inventoryservice.model.Inventory;
+import com.diegomzalez.inventoryservice.repository.InventoryRepository;
 
 @SpringBootApplication
-public class IventoryServiceApplication {
+public class InventoryServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IventoryServiceApplication.class, args);
+		SpringApplication.run(InventoryServiceApplication.class, args);
 	}
 
 	@Bean
