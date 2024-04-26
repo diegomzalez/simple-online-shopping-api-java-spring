@@ -4,7 +4,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./psmongod:/var/lib/mongo/data
+      - ./psmongod:/var/lib/psmongod
   osmdb:
     image: mysql
     environment:
@@ -15,7 +15,7 @@ services:
     ports:
       - "${OSMDB_CONTAINER_PORT}:${MYSQL_PORT}"
     volumes:
-      - ./osmdbd:/var/lib/mysql/osmdbd
+      - ./osmdbd:/var/lib/osmdbd
   ismdb:
     image: mysql
     environment:
@@ -24,7 +24,7 @@ services:
       MYSQL_PASSWORD: ${ISMDB_MYSQL_PASSWORD}
       MYSQL_DATABASE: ${ISMDB_MYSQL_DATABASE}
     volumes:
-      - ./ismdbd:/var/lib/mysql
+      - ./ismdbd:/var/lib/ismdbd
     ports:
       - "${ISMDB_CONTAINER_PORT}:${MYSQL_PORT}"
 volumes:

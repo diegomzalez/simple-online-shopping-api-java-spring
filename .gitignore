@@ -106,3 +106,8 @@ node_modules/
 # Package lock files (uncomment if you wish to ignore lock files)
 # package-lock.json
 # yarn.lock
+
+# Docker Data
+ismdbd
+psmongod
+osmdbd
